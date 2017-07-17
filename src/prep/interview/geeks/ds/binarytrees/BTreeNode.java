@@ -8,6 +8,7 @@ public class BTreeNode {
     private BTreeNode left;
     private BTreeNode right;
     private BTreeNode nextSibling;
+    private BTreeNode successor;
 
     BTreeNode(int data) {
         this.data = data;
@@ -46,19 +47,34 @@ public class BTreeNode {
         this.nextSibling = nextSibling;
     }
 
+    public BTreeNode getSuccessor() {
+        return successor;
+    }
+
+    public void setSuccessor(BTreeNode successor) {
+        this.successor = successor;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Data: " + this.getData());
-        sb.append(" Left: ");
-        if(this.getLeft()!=null) sb.append(this.getLeft().getData());
-        else sb.append("NULL");
-        sb.append(" Right: ");
-        if(this.getRight()!=null) sb.append(this.getRight().getData());
-        else sb.append("NULL");
-        sb.append(" Sibling: ");
-        if(this.getNextSibling()!= null) sb.append(this.getNextSibling().getData());
-        else sb.append("NULL");
+        if(this.getLeft()!=null){
+            sb.append(" Left: ");
+            sb.append(this.getLeft().getData());
+        }
+        if(this.getRight()!=null){
+            sb.append(" Right: ");
+            sb.append(this.getRight().getData());
+        }
+        if(this.getNextSibling()!= null){
+            sb.append(" Sibling: ");
+            sb.append(this.getNextSibling().getData());
+        }
+        if(this.getSuccessor()!= null){
+            sb.append(" Successor: ");
+            sb.append(this.getSuccessor().getData());
+        }
         return sb.toString();
     }
 }
