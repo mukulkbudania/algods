@@ -1,4 +1,4 @@
-package prep.interview.geeks.ds.advanced;
+package prep.interview.geeks.ds.advanced.trie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +23,7 @@ public class Trie {
             node = node.getChildren().get(index);
         }
         node.setEnd(true);
+        node.setCount(node.getCount()+1);
         return true;
     }
 

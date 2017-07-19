@@ -13,7 +13,7 @@ public class BinaryTree {
     }
 
     private BTreeNode root;
-    private BinaryTree(){
+    public BinaryTree(){
 
     }
 

@@ -77,4 +77,16 @@ public class BTreeNode {
         }
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BTreeNode bTreeNode = (BTreeNode) o;
+
+        if (data != bTreeNode.data) return false;
+
+        return true;
+    }
 }

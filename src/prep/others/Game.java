@@ -1,7 +1,7 @@
 package prep.others;
 
 import prep.interview.geeks.algo.backtracking.Permutation;
-import prep.interview.geeks.ds.advanced.Trie;
+import prep.interview.geeks.ds.advanced.trie.Trie;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

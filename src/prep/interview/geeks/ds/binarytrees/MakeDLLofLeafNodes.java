@@ -17,13 +17,17 @@ public class MakeDLLofLeafNodes {
     }
     public static void main(String[] args){
         BinaryTree tree = BinaryTree.constructBinaryTree(new int[]{4, 2, 5, 1, 8, 6, 3, 7, 9}, new int[]{1, 2, 4, 5, 3, 6, 8, 7, 9});
-        LeafNode leafNode = new LeafNode();
-        makeDLLofLeafNodes(tree.getRoot(),leafNode);
-        BTreeNode node = leafNode.getNode();
+        BTreeNode node = getLeafNodes(tree);
         while(node!=null){
             System.out.println(node);
-            node=node.getLeft();
+            node = node.getRight();
         }
+    }
+
+    public static BTreeNode getLeafNodes(BinaryTree tree){
+        LeafNode leafNode = new LeafNode();
+        makeDLLofLeafNodes(tree.getRoot(),leafNode);
+        return leafNode.getNode();
     }
 
     /**
@@ -36,17 +40,17 @@ public class MakeDLLofLeafNodes {
      */
     private static void makeDLLofLeafNodes(BTreeNode root, LeafNode leafNode) {
         if(root==null) return;
-        makeDLLofLeafNodes(root.getLeft(),leafNode);
+        makeDLLofLeafNodes(root.getRight(),leafNode);
         if(isLeaf(root)){
             BTreeNode node = leafNode.getNode();
             if(node!=null){
-                node.setRight(root);
+                node.setLeft(root);
             }
-            root.setLeft(node);
+            root.setRight(node);
             leafNode.setNode(root);
             return;
         }
-        makeDLLofLeafNodes(root.getRight(),leafNode);
+        makeDLLofLeafNodes(root.getLeft(),leafNode);
     }
 
     private static boolean isLeaf(BTreeNode root) {
