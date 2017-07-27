@@ -10,7 +10,7 @@ public class BTreeNode {
     private BTreeNode nextSibling;
     private BTreeNode successor;
 
-    BTreeNode(int data) {
+    public BTreeNode(int data) {
         this.data = data;
         this.left = this.right = null;
     }

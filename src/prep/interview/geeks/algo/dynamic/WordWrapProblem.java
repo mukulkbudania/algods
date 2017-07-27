@@ -19,9 +19,6 @@ public class WordWrapProblem {
             int maxWidth = Integer.parseInt(in.nextLine());
             System.out.println(getminCostWordWrap(wordsLength,maxWidth));
         }
-
-
-
     }
 
     private static int getminCostWordWrap(List<Integer> wordsLength, int maxWidth) {
