@@ -13,8 +13,8 @@ public class Permutation {
             strings.add(new String(arr));
         }
         for(int i=start;i<end;i++){
-            swap(arr,start,i);
-            permute(arr,start+1,end);
+            swap(arr,start,i);//set
+            permute(arr,start+1,end); //check if solution exists
             swap(arr,i,start);
         }
 

@@ -6,6 +6,9 @@ package prep.interview.geeks.ds.linkedlist.singlelinkedlist;
 public class LinkedList {
     private LLNode root;
 
+    public LinkedList(){
+        setRoot(null);
+    }
     public LinkedList(int a[]){
         if(a.length>0){
             this.root = new LLNode(a[0]);
