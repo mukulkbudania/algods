@@ -1,4 +1,4 @@
-package prep.interview.geeks.algo;
+package prep.interview.geeks.algo.backtracking;
 
 /**
  * Created by mukulbudania on 7/28/17.
