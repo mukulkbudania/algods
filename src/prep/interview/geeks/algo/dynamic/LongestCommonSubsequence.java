@@ -5,8 +5,8 @@ package prep.interview.geeks.algo.dynamic;
  */
 public class LongestCommonSubsequence {
     public static void main(String[] args){
-        String a = "ABCDGH";
-        String b = "AEDFHR";
+        String a = "GEEKSFORGEEKS";
+        String b = "SKEEGROFSKEEG";
         System.out.println(getSubsequence(a,b));
     }
 
