@@ -25,7 +25,7 @@ public class Game {
             in = new BufferedReader(new FileReader(FILENAME));
             String str;
             while ((str = in.readLine()) != null)
-                trie.insert(str.trim());
+                trie.insert(str.trim().toLowerCase());
             in.close();
         } catch (IOException e) {
             e.printStackTrace();

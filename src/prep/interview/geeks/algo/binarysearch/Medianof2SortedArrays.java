@@ -1,4 +1,4 @@
-package prep.interview.geeks.algo.bits;
+package prep.interview.geeks.algo.binarysearch;
 
 /**
  * Created by mukulbudania on 7/28/17.

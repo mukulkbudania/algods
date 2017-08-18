@@ -70,6 +70,7 @@ public class BoxStacking {
                     maxHeight[i] = maxHeight[j] + boxes.get(i).height;
                 }
             }
+
         }
         int max = Integer.MIN_VALUE;
         for(int i=0;i<3*n;i++){

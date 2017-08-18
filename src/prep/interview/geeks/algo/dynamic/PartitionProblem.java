@@ -29,24 +29,24 @@ public class PartitionProblem {
         if(sum%2!=0) return false;
         sum/=2;
 
-        boolean[][] dp = new boolean[sum+1][n+1];
+        boolean[][] dp = new boolean[n+1][sum+1];
         //Set all true when sum is 0
         for(int i=0;i<=n;i++){
-            dp[0][i]=true;
+            dp[i][0]=true;
         }
         //Set all false when numbers taken is 0
         for(int i=1;i<=sum;i++){
-            dp[i][0]=false;
+            dp[0][i]=false;
         }
 
-        for(int i=1;i<=sum;i++){
-            for(int j=1;j<=n;j++){
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=sum;j++){
                 dp[i][j]=dp[i][j-1]; //a[j-1] not taken
-                if(a[j-1]<=i){
-                    dp[i][j] =dp[i][j] || dp[i-a[j-1]][j-1]; //a[j-1] taken
+                if(a[i-1]<=j){
+                    dp[i][j] =dp[i][j] || dp[i-1][j-a[i-1]]; //a[j-1] taken
                 }
             }
         }
-        return dp[sum][n];
+        return dp[n][sum];
     }
 }

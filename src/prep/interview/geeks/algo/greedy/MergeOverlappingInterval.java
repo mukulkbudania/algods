@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by mukulbudania on 7/28/17.
  */
-public class OverlappingIntervals {
+public class MergeOverlappingInterval {
     private static class Interval{
         private int start;
         private int end;
