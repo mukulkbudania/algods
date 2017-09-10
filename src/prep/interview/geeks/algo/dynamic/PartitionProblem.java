@@ -41,9 +41,9 @@ public class PartitionProblem {
 
         for(int i=1;i<=n;i++){
             for(int j=1;j<=sum;j++){
-                dp[i][j]=dp[i][j-1]; //a[j-1] not taken
+                dp[i][j] = dp[i-1][j]; //a[i-1] not taken
                 if(a[i-1]<=j){
-                    dp[i][j] =dp[i][j] || dp[i-1][j-a[i-1]]; //a[j-1] taken
+                    dp[i][j] = dp[i][j] || dp[i-1][j-a[i-1]]; //a[i-1] taken
                 }
             }
         }

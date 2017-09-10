@@ -15,9 +15,7 @@ public class NextPermutation {
         int i=a.length-2;
         while (i>=0 && a[i]>=a[i+1])i--;
         if(i==0) {reverse(a,0,a.length-1);return;}
-        int k=a.length-1;
-        while (a[k]<a[i])k--;
-        swap(a,i,k);
+        swap(a,i,a.length-1);
         reverse(a,i+1,a.length-1);
     }
 
