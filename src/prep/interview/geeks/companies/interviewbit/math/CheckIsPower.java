@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * Created by mukulbudania on 8/4/17.
  */
-public class IsPower {
-    public boolean isPower(int a) {
+public class CheckIsPower {
+    private boolean isPower(int a) {
         if(a==0|| a==1) return true;
         int x = (int) java.lang.Math.sqrt(a);
         List<Integer> primes = getAllPrimes(x);
@@ -56,7 +56,7 @@ public class IsPower {
     }
     public static void main(String[] args){
         int a = 2;
-        IsPower isPower = new IsPower();
+        CheckIsPower isPower = new CheckIsPower();
         System.out.println(isPower.isPower(a));
     }
 }
