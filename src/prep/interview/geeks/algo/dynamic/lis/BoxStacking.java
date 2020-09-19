@@ -1,7 +1,5 @@
 package prep.interview.geeks.algo.dynamic.lis;
 
-import org.omg.CORBA.portable.BoxedValueHelper;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -14,7 +12,9 @@ public class BoxStacking {
         int width;
         int length;
         int height;
-        Box(int width,int length,int height){
+        Box(final int width,
+            final int length,
+            final int height){
             this.width=width;
             this.length=length;
             this.height=height;
@@ -22,7 +22,7 @@ public class BoxStacking {
 
         @Override
         public String toString() {
-            StringBuilder sb = new StringBuilder();
+            final StringBuilder sb = new StringBuilder();
             sb.append("W: ");sb.append(width);
             sb.append(" L: ");sb.append(length);
             sb.append(" H: ");sb.append(height);
@@ -30,8 +30,8 @@ public class BoxStacking {
             return sb.toString();
         }
     }
-    public static void main(String[] args){
-        List<Box> boxes = new ArrayList<Box>(4);
+    public static void main(final String[] args){
+        final List<Box> boxes = new ArrayList<Box>(4);
         boxes.add(new Box(4,6,7));
         boxes.add(new Box(1,2,3));
         boxes.add(new Box(4,5,6));
@@ -39,29 +39,29 @@ public class BoxStacking {
         System.out.println("Maximum height possible: " + getMaxHeight(boxes));
     }
 
-    private static int getMaxHeight(List<Box> initialBoxes) {
-        int n= initialBoxes.size();
-        List<Box> boxes = new ArrayList<Box>(3*n);
-        for(Box b: initialBoxes){
+    private static int getMaxHeight(final List<Box> initialBoxes) {
+        final int n= initialBoxes.size();
+        final List<Box> boxes = new ArrayList<Box>(3*n);
+        for(final Box b: initialBoxes){
             boxes.add(new Box(b.width,b.length,b.height));
             boxes.add(new Box(b.length,b.height,b.width));
             boxes.add(new Box(b.height,b.width,b.length));
         }
         boxes.sort(new Comparator<Box>() {
             @Override
-            public int compare(Box o1, Box o2) {
+            public int compare(final Box o1, final Box o2) {
                 return o2.width * o2.length - o1.width * o1.length ;
             }
         });
-        int maxHeight[] = new int[3*n];
+        final int[] maxHeight = new int[3*n];
         maxHeight[0]=boxes.get(0).height;
         for(int i=1;i<3*n;i++){
             maxHeight[i]=boxes.get(i).height;
             for (int j=0;j<i;j++){
-                int boxJWidth = boxes.get(j).width;
-                int boxJLength = boxes.get(j).length;
-                int boxIWidth = boxes.get(i).width;
-                int boxILength = boxes.get(i).length;
+                final int boxJWidth = boxes.get(j).width;
+                final int boxJLength = boxes.get(j).length;
+                final int boxIWidth = boxes.get(i).width;
+                final int boxILength = boxes.get(i).length;
                 System.out.println(boxJWidth + " " + boxJLength + " " + boxIWidth + " " + boxILength);
                 if(max(boxJLength,boxJWidth)>max(boxILength,boxIWidth) &&
                         min(boxJLength, boxJWidth)>min(boxILength, boxIWidth) &&
@@ -81,11 +81,11 @@ public class BoxStacking {
         return max;
     }
 
-    private static int min(int a, int b) {
+    private static int min(final int a, final int b) {
         return (a>b)?b:a;
     }
 
-    private static int max(int a, int b) {
+    private static int max(final int a, final int b) {
         return (a>b)?a:b;
     }
 }

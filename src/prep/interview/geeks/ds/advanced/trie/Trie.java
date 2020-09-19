@@ -38,6 +38,7 @@ public class Trie {
         for(int i=0;i<arr.length;i++){
             char index = arr[i];
             if(node.getChildren().get(index)==null){ return false;}
+
             if(node.getChildren().size()==1){
                 node.getChildren().remove(index);
             }
@@ -45,6 +46,7 @@ public class Trie {
         }
         return true;
     }
+
     public List<String> prefixSearch(String word){
         List<String> result = new ArrayList<String>();
         if(!validate(word)) return result;

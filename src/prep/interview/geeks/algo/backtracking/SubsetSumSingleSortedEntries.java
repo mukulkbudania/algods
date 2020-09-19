@@ -5,21 +5,25 @@ package prep.interview.geeks.algo.backtracking;
  */
 public class SubsetSumSingleSortedEntries {
 
-    public static void main(String[] args){
-        int a[] = new int[]{1,2,5,6,7,10};
-        int k = 8;
+    public static void main(final String[] args){
+        final int[] a = new int[]{1,2,5,6,7,10};
+        final int k = 8;
         subsetSum(a,k);
     }
 
-    private static void subsetSum(int a[], int sum) {
-        int b[] = new int[a.length];
+    private static void subsetSum(final int[] a, final int sum) {
+        final int[] b = new int[a.length];
         for(int i=0;i<a.length;i++){
             b[i]=0;
         }
         totalSum(a, b, 0, 0, 0, sum);
     }
 
-    private static void totalSum(int[] a, int[] b,int sumTillNow,int tupleSize, int tupleIndex, int totalSum) {
+    private static void totalSum(final int[] a, final int[] b,
+                                 final int sumTillNow,
+                                 final int tupleSize, final int tupleIndex, final int totalSum) {
+        print(b,tupleSize);
+        System.out.println(" SumTillNow: " + sumTillNow + " TupleSize: " + tupleSize + " TupleIndex: " + tupleSize + " TotalSum: " + totalSum);
         if(sumTillNow==totalSum){
             print(b,tupleSize);
         } else {
@@ -34,7 +38,8 @@ public class SubsetSumSingleSortedEntries {
         }
     }
 
-    private static void print(int a[],int size) {
+    private static void print(final int[] a,
+                              final int size) {
         for(int i=0;i<size;i++){
             System.out.print(a[i] + " ");
         }

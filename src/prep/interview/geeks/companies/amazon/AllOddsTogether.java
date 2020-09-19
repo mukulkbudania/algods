@@ -23,8 +23,8 @@ public class AllOddsTogether {
             if(nextOdd==null) return;
 
             LLNode nextEven = nextOdd.getNext();
-
             nextOdd.setNext(lastOdd.getNext());
+
             lastOdd.setNext(nextOdd);
             lastOdd = nextOdd;
 

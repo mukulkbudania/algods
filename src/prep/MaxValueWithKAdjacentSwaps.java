@@ -7,21 +7,25 @@ import java.util.Scanner;
  * Created by mukulbudania on 8/31/17.
  */
 public class MaxValueWithKAdjacentSwaps {
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        String[] numbers = scanner.nextLine().split(" ");
-        int a[] = new int[numbers.length];
+    public static void main(final String[] args){
+        final Scanner scanner = new Scanner(System.in);
+        final String[] numbers = scanner.nextLine().split(" ");
+        final int[] a = new int[numbers.length];
         for(int i=0;i<numbers.length;i++){
             a[i]=Integer.parseInt(numbers[i]);
         }
-        int k = Integer.parseInt(scanner.nextLine());
-        int maxArray[] = getMaxArray(a);
+        final int k = Integer.parseInt(scanner.nextLine());
+        final int[] maxArray = getMaxArray(a);
+        for(int i=0;i<maxArray.length;i++){
+            System.out.print(maxArray[i] + " ");
+        }
+        System.out.println();
         getMaxResult(a,maxArray,0,k);
         print(a);
     }
 
-    private static int[] getMaxArray(int[] a) {
-        int maxArray[] = new int[a.length];
+    private static int[] getMaxArray(final int[] a) {
+        final int[] maxArray = new int[a.length];
         int max=0;
         for(int i=0;i<a.length;i++){
             if(a[i]>max)max=a[i];
@@ -30,13 +34,13 @@ public class MaxValueWithKAdjacentSwaps {
         return maxArray;
     }
 
-    private static void print(int[] a) {
+    private static void print(final int[] a) {
         Arrays.stream(a).forEach((i)->System.out.print(i + " "));
         System.out.println();
     }
 
-    private static void getMaxResult(int[] number, int[] maxArray, int start, int k) {
-        int len = number.length;
+    private static void getMaxResult(final int[] number, final int[] maxArray, final int start, final int k) {
+        final int len = number.length;
         if(start>len-1 || k<=0) return;
 
         //find max
@@ -48,7 +52,7 @@ public class MaxValueWithKAdjacentSwaps {
 
         //bubble up max
         for(int i=max-1;i>=start;i--){
-            int temp = number[i];
+            final int temp = number[i];
             number[i]=number[i+1];
             number[i+1]=temp;
         }
